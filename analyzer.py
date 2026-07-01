@@ -76,7 +76,7 @@ class Analyzer:
     def __init__(self) -> None:
         self._client = openai.OpenAI(api_key=config.OPENAI_API_KEY)
 
-    def analyse(
+    def analyze(
         self,
         scenario: dict[str, Any],
         transcript: list[tuple[str, str]],

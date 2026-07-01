@@ -66,7 +66,7 @@ class VoiceBot:
         scenario = get_scenario(scenario_name)
         simulator = PatientSimulator(scenario)
 
-        logger.info("Starting scenario '%s' → calling %s", scenario_name, target)
+        logger.info("Starting scenario '%s' → placing outbound call", scenario_name)
 
         call_sid = self._place_call(simulator)
         if not call_sid:
@@ -93,7 +93,7 @@ class VoiceBot:
             )
 
         # Analyse
-        analysis = self._analyzer.analyse(scenario, transcript)
+        analysis = self._analyzer.analyze(scenario, transcript)
         report_text = self._analyzer.format_report(scenario, analysis, call_sid)
         report_path = self._save_report(scenario_name, call_sid, report_text, analysis)
 

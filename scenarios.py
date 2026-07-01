@@ -16,7 +16,7 @@ A scenario is a plain dict with the following keys:
   max_turns   – soft limit on the number of back-and-forth turns before the
                 bot hangs up naturally
 
-Quality-check criteria are used by the analyser to decide whether the agent
+Quality-check criteria are used by the analyzer to decide whether the agent
 handled the scenario correctly:
 
   expected_outcomes – list of strings that *should* appear (or be implied) in

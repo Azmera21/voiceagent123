@@ -86,7 +86,7 @@ class RecordingManager:
         Returns a list of (speaker, text) tuples where speaker is "AGENT"
         or "PATIENT", or None if transcription failed / timed out.
 
-        Twilio's basic transcription does not do speaker diarisation;
+        Twilio's basic transcription does not do speaker diarization;
         we heuristically label turns using the call direction and timing.
         """
         try:
@@ -149,14 +149,14 @@ class RecordingManager:
 
 def _parse_transcription_text(raw: str) -> list[tuple[str, str]]:
     """
-    Parse raw Twilio transcription text into speaker-labelled turns.
+    Parse raw Twilio transcription text into speaker-labeled turns.
 
     Twilio's basic transcription returns a plain string without speaker labels.
     We split it into sentences and alternate AGENT / PATIENT labels, starting
     with AGENT (since the agent typically greets first).
 
     For production use, consider Twilio Intelligence or Google/AWS STT with
-    speaker diarisation for accurate labelling.
+    speaker diarization for accurate labeling.
     """
     if not raw:
         return []

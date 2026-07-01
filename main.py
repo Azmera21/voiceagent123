@@ -68,8 +68,8 @@ def _validate_config() -> None:
 
     if config.TARGET_PHONE_NUMBER != "+18054398008":
         logger.error(
-            "TARGET_PHONE_NUMBER must be +18054398008. Got: %s",
-            config.TARGET_PHONE_NUMBER,
+            "TARGET_PHONE_NUMBER is not set to the authorised test number. "
+            "Update your .env file."
         )
         sys.exit(1)
 

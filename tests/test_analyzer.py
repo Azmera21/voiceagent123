@@ -66,7 +66,7 @@ class TestAnalyzer:
         mock_openai_cls.return_value = mock_client
 
         analyzer = Analyzer()
-        result = analyzer.analyse(SAMPLE_SCENARIO, GOOD_TRANSCRIPT)
+        result = analyzer.analyze(SAMPLE_SCENARIO, GOOD_TRANSCRIPT)
 
         assert "overall_quality" in result
         assert "issues" in result
@@ -89,7 +89,7 @@ class TestAnalyzer:
         mock_openai_cls.return_value = mock_client
 
         analyzer = Analyzer()
-        result = analyzer.analyse(SAMPLE_SCENARIO, BAD_TRANSCRIPT)
+        result = analyzer.analyze(SAMPLE_SCENARIO, BAD_TRANSCRIPT)
 
         issue_categories = [i["category"] for i in result["issues"]]
         assert "red_flag_phrase" in issue_categories
@@ -103,7 +103,7 @@ class TestAnalyzer:
         mock_openai_cls.return_value = mock_client
 
         analyzer = Analyzer()
-        result = analyzer.analyse(SAMPLE_SCENARIO, GOOD_TRANSCRIPT)
+        result = analyzer.analyze(SAMPLE_SCENARIO, GOOD_TRANSCRIPT)
 
         assert result["overall_quality"] == "unknown"
         assert "Analysis could not be completed" in result["summary"]
@@ -115,7 +115,7 @@ class TestAnalyzer:
         mock_openai_cls.return_value = mock_client
 
         analyzer = Analyzer()
-        result = analyzer.analyse(SAMPLE_SCENARIO, GOOD_TRANSCRIPT)
+        result = analyzer.analyze(SAMPLE_SCENARIO, GOOD_TRANSCRIPT)
 
         assert "Analysis could not be completed" in result["summary"]
 
